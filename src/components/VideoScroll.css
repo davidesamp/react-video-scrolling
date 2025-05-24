@@ -1,0 +1,25 @@
+.video-scroll-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.video-container {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    z-index: 10;
+}
+
+.scroll-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.scroll-container {
+    width: 100%;
+    /* This will be dynamically updated based on video duration */
+}
