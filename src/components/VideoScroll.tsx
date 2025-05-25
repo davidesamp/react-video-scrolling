@@ -11,13 +11,13 @@ export const VideoScroll = () => {
         let targetTime = 0;
 
         const handleScroll = () => {
-            if (video) {
-                targetTime = Math.min(window.scrollY / playbackConst, video.duration || 0);
+            if (video && video.duration > 0) {
+                targetTime = Math.min(window.scrollY / playbackConst, video.duration);
             }
         };
 
         const updateVideoTime = () => {
-            if (video) {
+            if (video && video.duration > 0) {
                 const diff = targetTime - video.currentTime;
                 video.currentTime += diff * 0.1; // Easing
             }
@@ -66,9 +66,10 @@ export const VideoScroll = () => {
                     poster='../icons/no-video.png'
                 >
                     <source
-                        type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
+                        type='video/mp4'
                         src="https://www.apple.com/media/us/mac-pro/2013/16C1b6b5-1d91-4fef-891e-ff2fc1c1bb58/videos/macpro_main_desktop.mp4"
                     />
+                    Your browser does not support the video tag.
                 </video>
             </div>
             <div ref={scrollContainerRef} className={styles.ScrollContainer} />
