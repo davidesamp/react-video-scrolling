@@ -8,25 +8,28 @@ export const VideoScroll = () => {
 
     useEffect(() => {
         const video = videoRef.current;
-        let ticking = false;
+        let targetTime = 0;
 
         const handleScroll = () => {
-            if (!ticking) {
-                requestAnimationFrame(() => {
-                    if (video) {
-                        const frameNumber = window.scrollY / playbackConst;
-                        video.currentTime = Math.min(frameNumber, video.duration || 1);
-                    }
-                    ticking = false;
-                });
-                ticking = true;
+            if (video) {
+                targetTime = Math.min(window.scrollY / playbackConst, video.duration || 0);
             }
         };
 
+        const updateVideoTime = () => {
+            if (video) {
+                const diff = targetTime - video.currentTime;
+                video.currentTime += diff * 0.1; // Easing
+            }
+            requestAnimationFrame(updateVideoTime);
+        };
+
         window.addEventListener("scroll", handleScroll);
+        requestAnimationFrame(updateVideoTime);
+
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-
+    
     useEffect(() => {
         const video = videoRef.current;
         const scrollContainer = scrollContainerRef.current;
@@ -58,6 +61,9 @@ export const VideoScroll = () => {
                     muted
                     playsInline
                     aria-hidden="true"
+                    disablePictureInPicture
+                    controls={false}
+                    poster='../icons/no-video.png'
                 >
                     <source
                         type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
