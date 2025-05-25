@@ -1,10 +1,22 @@
 import { useRef, useEffect } from 'react';
 import styles from './VideoScroll.module.scss';
+import { SourceVideo } from '../types/video';
+import cx from 'classnames';
 
-export const VideoScroll = () => {
+interface VideoScrollProps {
+    sources: SourceVideo[];
+    /** Playback constant: pixels per second of video (default: 500) */
+    playbackRate?: number;
+    /** Optional class name for the wrapper */
+    className?: string;
+    /** Optional video height override (default: 100vh) */
+    height?: string | number;
+}
+
+export const VideoScroll = ({ sources, playbackRate, className, height }: VideoScrollProps) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
-    const playbackConst = 500;
+    const playbackConst = playbackRate ||500;
 
     useEffect(() => {
         const video = videoRef.current;
@@ -52,9 +64,10 @@ export const VideoScroll = () => {
     }, []);
 
     return (
-        <div className={styles.VideoScrollWrapper}>
+        <div className={cx(styles.VideoScrollWrapper, className)}>
             <div className={styles.VideoContainer}>
                 <video
+                    style={{ height: height ? height : '100vh' }}
                     className={styles.Video}
                     ref={videoRef}
                     preload="auto"
@@ -65,10 +78,14 @@ export const VideoScroll = () => {
                     controls={false}
                     poster='../icons/no-video.png'
                 >
-                    <source
-                        type='video/mp4'
-                        src="https://www.apple.com/media/us/mac-pro/2013/16C1b6b5-1d91-4fef-891e-ff2fc1c1bb58/videos/macpro_main_desktop.mp4"
-                    />
+                    {sources.map((source, index) => (
+                        <source
+                            key={index}
+                            type={source.type}
+                            src={source.src}
+                        />
+                    ))}
+                    
                     Your browser does not support the video tag.
                 </video>
             </div>
