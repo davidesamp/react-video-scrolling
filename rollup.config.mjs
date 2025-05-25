@@ -2,6 +2,8 @@ import { defineConfig } from 'rollup'
 import nodeExternals from 'rollup-plugin-node-externals'
 import json from '@rollup/plugin-json'
 import resolve from '@rollup/plugin-node-resolve'
+import babel from '@rollup/plugin-babel'
+import terser from '@rollup/plugin-terser'
 import typescript from 'rollup-plugin-typescript2'
 import commonjs from '@rollup/plugin-commonjs'
 import postcss from 'rollup-plugin-postcss'
@@ -40,11 +42,23 @@ export default defineConfig({
         typescript({
             clean: true,
         }),
-         postcss({
-            extract: true, // or a filename: 'dist/styles.css'
-            minimize: false,
-            sourceMap: true,
+        babel({
+            presets: ["@babel/preset-react"],
+            babelHelpers: "bundled",
+        }),
+        postcss({
+            modules: true,
+                use: [
+                    [
+                        'sass', {
+                            includePaths: [
+                                './node_modules',
+                            ],
+                        },
+                    ],
+                ],
         }),
         commonjs(),
+        terser(),
     ],
 })

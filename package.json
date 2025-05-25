@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "scripts": {
+    "prepack": "yarn build",
     "clean": "rimraf dist",
     "prebuild": "yarn clean",
     "build": "rollup -c && yarn tsc",
@@ -35,6 +36,7 @@
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-replace": "^6.0.2",
+    "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-url": "^8.0.2",
     "@types/react": "^19.1.5",
     "@typescript-eslint/eslint-plugin": "^8.32.1",
@@ -55,10 +57,12 @@
     "rollup-plugin-serve": "^3.0.0",
     "rollup-plugin-typescript2": "^0.36.0",
     "sass": "^1.89.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "yalc": "^1.0.0-pre.53"
   },
   "dependencies": {
     "@rollup/plugin-babel": "^6.0.4",
+    "classnames": "^2.5.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   }
