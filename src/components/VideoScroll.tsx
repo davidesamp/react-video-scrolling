@@ -49,8 +49,8 @@ export const VideoScroll = () => {
     }, []);
 
     return (
-        <div className="video-scroll-wrapper">
-            <div className="video-contaisner">
+        <div className={styles.VideoScrollWrapper}>
+            <div className={styles.VideoContainer}>
                 <video
                     className={styles.Video}
                     ref={videoRef}
@@ -65,7 +65,7 @@ export const VideoScroll = () => {
                     />
                 </video>
             </div>
-            <div ref={scrollContainerRef} className="scroll-container" />
+            <div ref={scrollContainerRef} className={styles.ScrollContainer} />
         </div>
     );
 };
