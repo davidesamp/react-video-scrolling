@@ -38,10 +38,17 @@ export default {
             browser: true,
         }),
         postcss({
-            extract: true,
-            minimize: false,
-            sourceMap: true,
-        }),
+            modules: true,
+            use: [
+                [
+                    'sass', {
+                        includePaths: [
+                            './node_modules',
+                        ],
+                    },
+                ],
+            ],
+          }),
         typescript({
             clean: true,
         }),

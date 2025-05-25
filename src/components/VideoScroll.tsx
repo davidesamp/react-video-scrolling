@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import './VideoScroll.css';
+import styles from './VideoScroll.module.scss';
 
 export const VideoScroll = () => {
     const videoRef = useRef<HTMLVideoElement>(null);
@@ -48,23 +48,12 @@ export const VideoScroll = () => {
         };
     }, []);
 
-    const videoStyles: React.CSSProperties = {
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "auto",
-        zIndex: -1,
-        pointerEvents: "none",
-    };
-
     return (
         <div className="video-scroll-wrapper">
-            <div className="video-container">
+            <div className="video-contaisner">
                 <video
-                    style={videoStyles}
+                    className={styles.Video}
                     ref={videoRef}
-                    className="scroll-video"
                     preload="auto"
                     muted
                     playsInline

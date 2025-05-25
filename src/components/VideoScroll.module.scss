@@ -23,3 +23,13 @@
     width: 100%;
     /* This will be dynamically updated based on video duration */
 }
+
+.Video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-Index: -1;
+    pointer-events: none;
+}
