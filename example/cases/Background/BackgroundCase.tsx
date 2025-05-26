@@ -4,7 +4,7 @@ import styles from './BackgroundCase.module.scss';
 
 const videoSources: SourceVideo[] = [
   {
-    src: 'https://www.apple.com/media/us/mac-pro/2013/16C1b6b5-1d91-4fef-891e-ff2fc1c1bb58/videos/macpro_main_desktop.mp4',
+    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
     type: 'video/mp4'
   }
 ];
