@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { VideoScroll } from '../../src/components/VideoScroll'
 import { SourceVideo } from '../../src/types/video'
 import styles from './App.module.scss'
-import { CenteredCase } from '../cases/CenteredCase'
+import { CenteredCase } from '../cases/Centered/CenteredCase'
+import { BackgroundCase } from '../cases/Background/backgroundCase'
 
 const fullPageSources: SourceVideo[] = [
     {
@@ -13,17 +14,19 @@ const fullPageSources: SourceVideo[] = [
 
 
 const App = () => {
-  const [phase, setPhase] = useState<'full' | 'center'>('full')
+  const [phase, setPhase] = useState<'full' | 'center'| 'background'>('full')
 
   const renderContent = {
     'full': <VideoScroll sources={fullPageSources} />,
     'center': <CenteredCase />,
+    'background': <BackgroundCase />,
   }
   return (
     <div className={styles.Container}>
       <div className={styles.TopBar}>
         <button onClick={() => setPhase('full')}>Full-Page (Hero effetc)</button>
         <button onClick={() => setPhase('center')}>Center Page</button>
+        <button onClick={() => setPhase('background')}>Background</button>
       </div>
       {renderContent[phase]}
     </div>

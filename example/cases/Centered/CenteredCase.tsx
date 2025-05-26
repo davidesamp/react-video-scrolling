@@ -1,6 +1,6 @@
 
-import { VideoScroll } from '../../src/components/VideoScroll';
-import { SourceVideo } from '../../src/types/video';
+import { VideoScroll } from '../../../src/components/VideoScroll';
+import { SourceVideo } from '../../../src/types/video';
 import styles from './CenteredCase.module.scss';
 
 const videoSources: SourceVideo[] = [
