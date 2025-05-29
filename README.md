@@ -9,6 +9,13 @@ A React component that syncs a video’s playback with the user's scroll positio
 - 🎥 Supports multiple video sources
 - 🧵 Extendable for timelines, parallax, or background animations
 
+## 📦 Installation
+
+```bash
+npm install react-video-scrolling
+# or
+yarn add react-video-scrolling
+```
 ## 🔧 Usage
 
 ```
