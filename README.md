@@ -12,7 +12,7 @@ A React component that syncs a video’s playback with the user's scroll positio
 ## 🔧 Usage
 
 ```
-import { VideoScroll } from '@your-scope/video-scroll';
+import { VideoScroll } from 'react-video-scrolling';
 
 const videoSources = [
   {
