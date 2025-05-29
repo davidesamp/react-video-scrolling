@@ -10,6 +10,9 @@
     "prebuild": "yarn clean",
     "build": "rollup -c && yarn tsc",
     "start": "rollup -c rollup.serve.config.mjs -w",
+    "release": "standard-version",
+    "postrelease": "git push --follow-tags --no-verify",
+    "release:unstable": "yarn prerelease && standard-version --prerelease $(git branch --show-current | sed 's/\\//-/g') && yarn postrelease",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "prepare": "husky"
@@ -57,6 +60,7 @@
     "rollup-plugin-serve": "^3.0.0",
     "rollup-plugin-typescript2": "^0.36.0",
     "sass": "^1.89.0",
+    "standard-version": "^9.5.0",
     "typescript": "^5.8.3",
     "yalc": "^1.0.0-pre.53"
   },
