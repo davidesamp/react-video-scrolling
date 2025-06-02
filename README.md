@@ -2,6 +2,9 @@
 
 A React component that syncs a video’s playback with the user's scroll position, enabling scroll-driven storytelling and immersive animations.
 
+## 🔗 DEMO
+👉 Check out the live examples here: https://react-video-scrolling.vercel.app/
+
 ## 🚀 Features
 
 - 🔄 Scroll-synced video playback
