@@ -10,6 +10,7 @@
     "prebuild": "yarn clean",
     "build": "rollup -c && yarn tsc",
     "start": "rollup -c rollup.serve.config.mjs -w",
+    "build:examples": "rollup -c rollup.examples.config.mjs",
     "release": "standard-version",
     "postrelease": "git push --follow-tags --no-verify",
     "release:unstable": "yarn prerelease && standard-version --prerelease $(git branch --show-current | sed 's/\\//-/g') && yarn postrelease",
@@ -34,6 +35,7 @@
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.27.0",
+    "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.1",
@@ -64,7 +66,6 @@
     "yalc": "^1.0.0-pre.53"
   },
   "dependencies": {
-    "@rollup/plugin-babel": "^6.0.4",
     "classnames": "^2.5.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
