@@ -9,6 +9,7 @@ import json from '@rollup/plugin-json'
 import typescript from 'rollup-plugin-typescript2'
 import postcss from 'rollup-plugin-postcss'
 import dotenv from 'dotenv'
+import htmlTemplate from 'rollup-plugin-generate-html-template';
 
 
 // import .env variables
@@ -57,5 +58,9 @@ export default {
       presets: ["@babel/preset-react"],
       babelHelpers: "bundled",
     }),
+    htmlTemplate({
+      template: 'example/index.html',
+      target: 'index.html',
+    })
   ],
 }

@@ -2804,6 +2804,15 @@ fs-extra@^10.0.0:
     jsonfile "^6.0.1"
     universalify "^2.0.0"
 
+fs-extra@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-7.0.1.tgz#4f189c44aa123b895f722804f55ea23eadc348e9"
+  integrity sha512-YJDaCJZEnBmcbw13fvdAM9AwNOJwOzrE4pqMqBq5nFiEqXUqHwlK4B+3pUw6JNvfSPtX05xFHtYy/1ni01eGCw==
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^4.0.0"
+    universalify "^0.1.0"
+
 fs-extra@^8.0.1:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-8.1.0.tgz#49d43c45a88cd9677668cb7be1b46efdb8d2e1c0"
@@ -4814,6 +4823,13 @@ rimraf@^6.0.1:
   dependencies:
     glob "^11.0.0"
     package-json-from-dist "^1.0.0"
+
+rollup-plugin-generate-html-template@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-generate-html-template/-/rollup-plugin-generate-html-template-1.7.0.tgz#f0a4c29cef054d038efd07738efa36d287b1c7da"
+  integrity sha512-05i19ngy9YQwFLteyGa4lyhjlyOGXgoz/xQu+wxty3PIdFtbRMs35SG4SjZfgPsBPyDW4sr4uZ1PUw+eeDx9aw==
+  dependencies:
+    fs-extra "^7.0.1"
 
 rollup-plugin-livereload@^2.0.5:
   version "2.0.5"
