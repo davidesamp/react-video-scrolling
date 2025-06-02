@@ -4,7 +4,7 @@ import { SourceVideo } from '../../src/types/video'
 import styles from './App.module.scss'
 import cx from 'classnames'
 import { CenteredCase } from '../cases/Centered/CenteredCase'
-import { BackgroundCase } from '../cases/Background/backgroundCase'
+import { BackgroundCase } from '../cases/Background/BackgroundCase'
 import { InteractiveTimeline } from '../cases/InteractiveTimeline/InteractiveTimeline'
 
 const fullPageSources: SourceVideo[] = [
